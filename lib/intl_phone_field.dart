@@ -1,6 +1,7 @@
 library intl_phone_field;
 
 import 'dart:async';
+import 'dart:ffi';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,6 +20,8 @@ class IntlPhoneField extends StatefulWidget {
 
   /// How the text should be aligned horizontally.
   final TextAlign textAlign;
+
+  final Color selectedColor;
 
   /// How the text should be aligned vertically.
   final TextAlignVertical? textAlignVertical;
@@ -257,6 +260,7 @@ class IntlPhoneField extends StatefulWidget {
     this.disableAutoFillHints = false,
     this.obscureText = false,
     this.textAlign = TextAlign.left,
+    this.selectedColor = Colors.white,
     this.textAlignVertical,
     this.onTap,
     this.readOnly = false,
@@ -479,7 +483,7 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
                         )
                       : Text(
                           _selectedCountry.flag,
-                          style: const TextStyle(fontSize: 18),
+                          style: const TextStyle(fontSize: 18, color: Colors.white),
                         ),
                   const SizedBox(width: 8),
                 ],
